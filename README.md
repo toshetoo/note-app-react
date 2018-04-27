@@ -1,2 +1,2 @@
 # note-app-react
-Link to second week work: https://codesandbox.io/s/x3nmzv984p
+Link to our work: https://codesandbox.io/s/5zkpy958y4
