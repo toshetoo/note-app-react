@@ -1,0 +1,23 @@
+.note-holder {
+    border: 1px solid gray;
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    background-color: orange;
+  }
+  
+  .note-creation-date {
+    word-wrap: break-word;
+  }
+  
+  .key {
+    font-weight: bold;
+  }
+  
+  .delete-icon {
+    position: relative;
+    top: 0;
+    left: 80px;
+    cursor: pointer;
+  }
+  
