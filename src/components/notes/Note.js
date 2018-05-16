@@ -47,7 +47,7 @@ class Note extends Component {
 export default withRouter(Note);
 
 Note.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   creationDate: PropTypes.string.isRequired,

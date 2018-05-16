@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NoteModel from "./models/NoteModel";
 import Loader from "../layout/Loader";
+import NotesAPI from "../../api/NotesAPI";
 
 export default class AddNote extends Component {
   constructor(props) {
@@ -20,12 +21,12 @@ export default class AddNote extends Component {
         ready: false
       });
 
-    //   NotesMockAPI.getById(id).then(dbNote => {
-    //     this.setState({
-    //       note: dbNote,
-    //       ready: true
-    //     });
-    //   });
+      NotesAPI.getById(id).then(dbNote => {
+        this.setState({
+          note: dbNote,
+          ready: true
+        });
+      });
     }
   }
 
@@ -47,13 +48,13 @@ export default class AddNote extends Component {
       ready: false
     });
 
-    // NotesMockAPI.save(this.state.note).then(() => {
-    //   this.setState({
-    //     ready: true
-    //   });
+    NotesAPI.save(this.state.note).then(() => {
+      this.setState({
+        ready: true
+      });
 
-    //   this.props.history.push("/notes-list");
-    // });
+      this.props.history.push("/notes-list");
+    });
   }
 
   render() {

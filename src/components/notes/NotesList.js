@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import Note from "./models/NoteModel";
+import Note from "./Note";
+
 import Loader from "../layout/Loader";
+import NotesAPI from '../../api/NotesAPI';
 
 const styles = {
-  "background-color": "lightgray"
+  "backgroundColor": "lightgray"
 };
 
 export default class NotesList extends Component {
@@ -17,12 +19,12 @@ export default class NotesList extends Component {
   }
 
   componentDidMount() {
-    // NotesAPI.getAll().then(dbNotes => {
-    //   this.setState({
-    //     notes: dbNotes,
-    //     ready: true
-    //   });
-    // });
+    NotesAPI.getAll().then((dbNotes) => {
+      this.setState({
+        notes: dbNotes,
+        ready: true
+      });
+    });
   }
 
   deleteNote(id) {
@@ -30,13 +32,14 @@ export default class NotesList extends Component {
       ready: false
     });
 
-    // NotesMockAPI.delete(id).then(() => {
-    //   NotesMockAPI.getAll().then(dbNotes => {
-    //     this.setState({
-    //       notes: dbNotes
-    //     });
-    //   });
-    // });
+    NotesAPI.delete(id).then(() => {
+      NotesAPI.getAll().then((dbNotes) => {
+        this.setState({
+          notes: dbNotes,
+          ready: true
+        });
+      });
+    });
   }
 
   render() {
@@ -47,8 +50,8 @@ export default class NotesList extends Component {
             {this.state.notes.map(note => {
               return (
                 <Note
-                  key={note.id}
-                  id={note.id}
+                  key={note._id}
+                  id={note._id}
                   title={note.title}
                   description={note.description}
                   creationDate={note.creationDate}
