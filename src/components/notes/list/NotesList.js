@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import Note from "./Note";
+import Note from "../single/Note";
 
-import Loader from "../layout/Loader";
-import NotesAPI from '../../api/NotesAPI';
+import Loader from "../../layout/Loader";
+import NotesAPI from '../../../api/NotesAPI';
+import './notes-list.css';
 
 const styles = {
   "backgroundColor": "lightgray"
 };
+
 
 export default class NotesList extends Component {
   constructor(props) {

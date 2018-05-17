@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NoteModel from "./models/NoteModel";
-import Loader from "../layout/Loader";
-import NotesAPI from "../../api/NotesAPI";
+import NoteModel from "./../models/NoteModel";
+import Loader from "../../layout/Loader";
+import NotesAPI from "../../../api/NotesAPI";
 
 export default class AddNote extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AuthAPI from '../../api/AuthAPI';
-import UsersAPI from '../../api/UserAPI';
+import AuthAPI from '../../../api/AuthAPI';
+import UsersAPI from '../../../api/UserAPI';
 
 export default class Verify extends Component {
     constructor(props) {
