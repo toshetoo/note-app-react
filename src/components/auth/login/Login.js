@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AuthAPI from '../../api/AuthAPI';
+import AuthAPI from '../../../api/AuthAPI';
+import './login.css';
 
 export default class Login extends Component {
     constructor(props) {
@@ -27,9 +28,12 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="login-wrapper">
-                <div className="row">
-                    <div className="col-12">
+            <div className="login-wrapper mt-5">                
+                <div className="row form-row">
+                    <div className="col-12 logo-holder">
+                        <img src="assets/images/notes_logo.png" />
+                    </div>    
+                    <div className="offset-4 col-4">                                        
                         <form onSubmit={this.onSubmit.bind(this)}>
                             <div className="form-group">
                                 <label for="email">Email:</label>

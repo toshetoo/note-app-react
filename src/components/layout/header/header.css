@@ -1,0 +1,15 @@
+nav {
+    background-color: silver;
+    padding: 10px;
+}
+
+a {
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+a:hover {    
+    border: 1px solid gray;
+    text-decoration: none;
+}

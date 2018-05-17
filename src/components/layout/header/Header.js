@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthAPI from '..//../api/AuthAPI';
+import AuthAPI from '../../../api/AuthAPI';
 import { withRouter } from 'react-router-dom';
+import './header.css';
 
 class Header extends Component {
   constructor(props) {

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import NotesList from "../notes/NotesList";
-import Home from "./Home";
-import AddNote from "../notes/AddNote";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
-import Verify from "../auth/Verify";
+import NotesList from "../../notes/NotesList";
+import Home from "../Home";
+import AddNote from "../../notes/AddNote";
+import Login from "../../auth/login/Login";
+import Register from "../../auth/Register";
+import Verify from "../../auth/Verify";
+
+import './main.css';
 
 export default class Main extends Component {
   render() {

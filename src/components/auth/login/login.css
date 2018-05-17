@@ -1,0 +1,17 @@
+.login-wrapper {
+    border: 1px solid gray;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.form-row {
+    height: 100%;
+    align-items: center;
+}
+
+.logo-holder img {
+    height: 80px;
+}

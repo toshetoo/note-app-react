@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Main from "./components/layout/Main";
+import Main from "./components/layout/main/Main";
 import { BrowserRouter } from "react-router-dom";
-import Header from "./components/layout/Header";
+import Header from "./components/layout/header/Header";
 
 const styles = {
   fontFamily: "sans-serif",
