@@ -26,11 +26,11 @@ export default class AuthAPI {
         });
     }
 
-    static verify(userData) {
+    static verifyAccount(passwordData) {
         return new Promise((resolve, reject) => {
-            axios.post(API_URL + '/auth/register', userData).then((data) => {
-                resolve(data);
-            });
+          axios.post(API_URL + '/auth/verify/' + passwordData.id, passwordData).then(() => {
+            resolve();
+          });
         });
-    }
+      }
 }
