@@ -36,7 +36,7 @@ export default class Login extends Component {
                     <div className="col-12">
                         <h2>Login</h2>
                     </div>
-                    <div className="offset-4 col-4">                                        
+                    <div className="col-4">                                        
                         <form onSubmit={this.onSubmit.bind(this)}>
                             <div className="form-group">
                                 <label for="email">Email:</label>
