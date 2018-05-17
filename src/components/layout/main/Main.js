@@ -4,7 +4,7 @@ import NotesList from "../../notes/NotesList";
 import Home from "../Home";
 import AddNote from "../../notes/AddNote";
 import Login from "../../auth/login/Login";
-import Register from "../../auth/Register";
+import Register from "../../auth/register/Register";
 import Verify from "../../auth/Verify";
 
 import './main.css';

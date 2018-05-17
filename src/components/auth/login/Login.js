@@ -33,6 +33,9 @@ export default class Login extends Component {
                     <div className="col-12 logo-holder">
                         <img src="assets/images/notes_logo.png" />
                     </div>    
+                    <div className="col-12">
+                        <h2>Login</h2>
+                    </div>
                     <div className="offset-4 col-4">                                        
                         <form onSubmit={this.onSubmit.bind(this)}>
                             <div className="form-group">
@@ -44,7 +47,7 @@ export default class Login extends Component {
                                 <input type="password" name="password" id="password" className="form-control" onChange={this.onChange.bind(this)}/> 
                             </div>
                             <div>
-                                <button type="submit">Login</button>
+                                <button type="submit" className="btn btn-primary">Login</button>
                             </div>
                         </form>
                     </div>

@@ -25,7 +25,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <nav className="nav justify-content-center">
         <Link to="/home" className="text-left"> Home </Link>
         <Link to="/notes-list" className="text-left"> Notes </Link>
         <Link to="/add-note" className="text-left">Add note</Link>
