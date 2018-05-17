@@ -1,3 +1,8 @@
 import React from 'react';
 
-export default () => <img src="assets/images/loader.gif" alt="loader"/>;
+const styles = {
+    'width': '300px',
+    'align-self': 'center'
+}
+
+export default () => <img src="assets/images/loader.gif" alt="loader" style={styles}/>;
