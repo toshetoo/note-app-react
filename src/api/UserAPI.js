@@ -4,6 +4,10 @@ import BaseAPI from './BaseAPI';
 
 export default class UsersAPI {
 
+  static getLoggedUser() {
+    return BaseAPI.getUser();
+  }
+
   static getById(id) {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/users/getByProp').then((data) => {

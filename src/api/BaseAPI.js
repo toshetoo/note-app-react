@@ -1,6 +1,13 @@
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 export default class BaseAPI {
+    static getUser() {
+        let token = localStorage.getItem('token');
+
+        return jwtDecode(token);
+    }
+
     static get(url, getParams) {
         let token = localStorage.getItem('token');
 

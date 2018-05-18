@@ -3,6 +3,7 @@ import Note from "../single/Note";
 
 import Loader from "../../layout/Loader";
 import NotesAPI from '../../../api/NotesAPI';
+import UsersAPI from '../../../api/UserAPI';
 import './notes-list.css';
 
 const styles = {
@@ -16,14 +17,18 @@ export default class NotesList extends Component {
 
     this.state = {
       notes: [],
+      loggedUser: {},
       ready: false
     };
   }
 
   componentDidMount() {
-    NotesAPI.getAll().then((dbNotes) => {
+    const loggedUser = UsersAPI.getLoggedUser();
+
+    NotesAPI.getByAuthorId(loggedUser.id).then((dbNotes) => {
       this.setState({
         notes: dbNotes,
+        loggedUser: loggedUser,
         ready: true
       });
     });

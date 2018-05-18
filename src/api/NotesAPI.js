@@ -13,6 +13,14 @@ export default class NotesAPI {
     });
   }
 
+  static getByAuthorId(id) {
+    return new Promise((resolve, reject) => {
+      BaseAPI.get(API_URL + '/notes/getByAuthorId/' + id).then((response) => {
+        resolve(response.data);
+      });
+    });
+  }
+
   static getAll() {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/notes').then((response) => {
