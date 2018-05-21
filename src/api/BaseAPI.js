@@ -68,6 +68,7 @@ export default class BaseAPI {
 
     static handleError(error) {
         if (error.response.status === 401) {
+            localStorage.removeItem('token');
             history.push('/login');
         }
     }
