@@ -29,6 +29,7 @@ class Header extends Component {
         <Link to="/home" className="text-left"> Home </Link>
         <Link to="/notes-list" className="text-left"> Notes </Link>
         <Link to="/add-note" className="text-left">Add note</Link>
+        <Link to="/users-list" className="text-left">Users list</Link>
 
         { this.state.isLogged ? <button onClick={this.logout.bind(this)} className="float-right"> Logout </button> : '' }
       </nav>

@@ -18,7 +18,7 @@ export default class UsersAPI {
 
   static getAll() {
     return new Promise((resolve, reject) => {
-      BaseAPI.get(API_URL + '/users/getAll').then((data) => {
+      BaseAPI.get(API_URL + '/users').then((data) => {
             resolve(data);
         }).catch(BaseAPI.handleError);
     });

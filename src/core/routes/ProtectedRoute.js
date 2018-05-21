@@ -8,7 +8,6 @@ export default class ProtectedRoute extends Component {
     }
 
     render() {
-        debugger;
         const isLoggedIn = UsersAPI.getLoggedUser() !== null;
 
         if(isLoggedIn) {
