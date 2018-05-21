@@ -1,5 +1,3 @@
-import NoteModel from "../components/notes/models/NoteModel";
-import axios from 'axios';
 import { API_URL } from './Constants';
 import BaseAPI from './BaseAPI';
 

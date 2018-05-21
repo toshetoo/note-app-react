@@ -33,7 +33,7 @@ export default class Register extends Component {
             <div className="register-wrapper mt-5">
                 <div className="row form-row">
                     <div className="col-12 logo-holder">
-                        <img src="assets/images/notes_logo.png" />
+                        <img src="assets/images/notes_logo.png" alt="logo"/>
                         
                     </div>   
                     <div className="col-12">

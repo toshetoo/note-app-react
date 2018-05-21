@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 class Note extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   deleteNote() {
     this.props.deleteNoteFunc(this.props.id);

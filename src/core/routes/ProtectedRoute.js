@@ -3,9 +3,6 @@ import UsersAPI from '../../api/UserAPI';
 import { Redirect } from 'react-router-dom'
 
 export default class ProtectedRoute extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const isLoggedIn = UsersAPI.getLoggedUser() !== null;

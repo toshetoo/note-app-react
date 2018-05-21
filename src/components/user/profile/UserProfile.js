@@ -21,13 +21,18 @@ class UserProfile extends Component {
         });
      }
 
+     redirectToEdit() {
+         this.props.history.push('/edit-user');
+     }
+
      render() {
          const { user } = this.state;
+         const isCurrentUser = UsersAPI.getLoggedUser()._id === user.id;
          return (
              <div className="user-profile-holder mt-5">
                 <div className="row">
                     <div className="col-12">
-                        <h3>{user.firstName} {user.lastName}</h3>
+                        <h3 className="d-inline-block">{user.firstName} {user.lastName}</h3> {isCurrentUser ? <button onClick={this.redirectToEdit.bind(this)} className="btn btn-primary">Edit</button> : ''}
                     </div>
                 </div>
                 <div className="row">

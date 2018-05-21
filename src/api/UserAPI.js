@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { API_URL } from './Constants';
 import BaseAPI from './BaseAPI';
 

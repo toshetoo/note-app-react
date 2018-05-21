@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuthAPI from '../../../api/AuthAPI';
-import UsersAPI from '../../../api/UserAPI';
 
 import './verify.css';
 
