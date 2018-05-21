@@ -22,7 +22,8 @@ class UserProfile extends Component {
      }
 
      redirectToEdit() {
-         this.props.history.push('/edit-user');
+         debugger;
+         this.props.history.push('/edit-user/' + this.state.user._id);
      }
 
      render() {

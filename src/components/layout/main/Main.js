@@ -9,6 +9,7 @@ import Verify from "../../auth/verify/Verify";
 
 import UsersList from '../../user/list/UsersList';
 import UserProfile from '../../user/profile/UserProfile';
+import UserProfileEdit from '../../user/edit/EditUser';
 
 import ProtectedRoute from '../../../core/routes/ProtectedRoute';
 
@@ -29,6 +30,7 @@ export default class Main extends Component {
           <ProtectedRoute path="/add-note/:id" component={AddNote} />
 
           <ProtectedRoute path="/user-profile/:id" component={UserProfile} />
+          <ProtectedRoute path="/edit-user/:id" component={UserProfileEdit} />
           <ProtectedRoute path="/users-list" component={UsersList} />
 
           <Redirect from="/" to="/login" />
