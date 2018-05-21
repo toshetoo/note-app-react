@@ -7,6 +7,8 @@ import Login from "../../auth/login/Login";
 import Register from "../../auth/register/Register";
 import Verify from "../../auth/verify/Verify";
 
+import ProtectedRoute from '../../../core/routes/ProtectedRoute';
+
 import './main.css';
 
 export default class Main extends Component {
@@ -18,10 +20,10 @@ export default class Main extends Component {
           <Route exact path="/verify/:id" component={Verify} />
           <Route exact path="/register" component={Register} />
 
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/notes-list" component={NotesList} />
-          <Route exact path="/add-note" component={AddNote} />
-          <Route exact path="/add-note/:id" component={AddNote} />
+          <ProtectedRoute path="/home" component={Home} />
+          <ProtectedRoute path="/notes-list" component={NotesList} />
+          <ProtectedRoute path="/add-note" component={AddNote} />
+          <ProtectedRoute path="/add-note/:id" component={AddNote} />
 
           <Redirect from="/" to="/login" />
         </Switch>

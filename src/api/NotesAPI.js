@@ -9,7 +9,7 @@ export default class NotesAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/notes/' + id).then((response) => {
         resolve(response.data);
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 
@@ -17,7 +17,7 @@ export default class NotesAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/notes/getByAuthorId/' + id).then((response) => {
         resolve(response.data);
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 
@@ -25,7 +25,7 @@ export default class NotesAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/notes').then((response) => {
             resolve(response.data);
-        });
+        }).catch(BaseAPI.handleError);
     });
   }
 
@@ -34,11 +34,11 @@ export default class NotesAPI {
       if(!note._id) {
         BaseAPI.post(API_URL + '/notes', note).then((response) => {
           resolve(response.data);
-        });
+        }).catch(BaseAPI.handleError);
       } else {
         BaseAPI.put(API_URL + '/notes/' + note._id, note).then((response) => {
           resolve(response.data);
-        });
+        }).catch(BaseAPI.handleError);
       }      
     });
   }
@@ -47,7 +47,7 @@ export default class NotesAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.delete(API_URL + '/notes/' + id).then((response) => {
         resolve();
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 }

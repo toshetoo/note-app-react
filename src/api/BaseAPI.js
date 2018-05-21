@@ -1,11 +1,17 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
+import history from "../core/history/History";
+
 export default class BaseAPI {
+
     static getUser() {
         let token = localStorage.getItem('token');
 
-        return jwtDecode(token);
+        if (token)
+            return jwtDecode(token);
+
+        return null;
     }
 
     static get(url, getParams) {
@@ -58,5 +64,11 @@ export default class BaseAPI {
         };
 
         return axios.delete(url, config);
+    }
+
+    static handleError(error) {
+        if (error.response.status === 401) {
+            history.push('/login');
+        }
     }
 }

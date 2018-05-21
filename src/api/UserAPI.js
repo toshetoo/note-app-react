@@ -12,7 +12,7 @@ export default class UsersAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/users/getByProp').then((data) => {
         resolve(data);
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 
@@ -20,7 +20,7 @@ export default class UsersAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.get(API_URL + '/users/getAll').then((data) => {
             resolve(data);
-        });
+        }).catch(BaseAPI.handleError);
     });
   }
 
@@ -28,7 +28,7 @@ export default class UsersAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.post(API_URL + '/users', note).then((data) => {
         resolve(data);
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 
@@ -36,7 +36,7 @@ export default class UsersAPI {
     return new Promise((resolve, reject) => {
       BaseAPI.delete(API_URL + '/users/' + id).then(() => {
         resolve();
-      });
+      }).catch(BaseAPI.handleError);
     });
   }
 }

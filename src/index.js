@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Main from "./components/layout/main/Main";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import history from './core/history/History';
 import Header from "./components/layout/header/Header";
 
 const styles = {
@@ -22,8 +23,8 @@ export default class App extends Component {
 }
 
 render(
-  <BrowserRouter>
+  <Router history={history}>
     <App />
-  </BrowserRouter>,
+  </Router>,
   document.getElementById("root")
 );
