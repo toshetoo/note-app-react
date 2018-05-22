@@ -66,6 +66,21 @@ export default class BaseAPI {
         return axios.delete(url, config);
     }
 
+    static uploadFile(url, file) {
+        const data = new FormData();
+        data.append('file', file);
+
+        let token = localStorage.getItem('token');
+
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        };
+
+        return axios.post(url, data, config);
+    }
+
     static handleError(error) {
         if (error.response.status === 401) {
             localStorage.removeItem('token');

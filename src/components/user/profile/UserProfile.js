@@ -22,7 +22,6 @@ class UserProfile extends Component {
      }
 
      redirectToEdit() {
-         debugger;
          this.props.history.push('/edit-user/' + this.state.user._id);
      }
 
@@ -38,7 +37,7 @@ class UserProfile extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-             
+                        {user.image && user.image.url ? <img src={user.image.url} alt="profile-pic" /> : ''}
                     </div>
                     <div className="col-8">
                         <div className="row">

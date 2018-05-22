@@ -8,7 +8,8 @@ class UserProfileEdit extends Component {
         super(props);
 
         this.state = {
-            user: {}
+            user: {},
+            image: ''
         };
     }
 
@@ -30,9 +31,27 @@ class UserProfileEdit extends Component {
          });
      }
 
+     onImageChange(event) {
+        this.setState({
+            image: event.target.files[0]
+        });
+     }
+
      onSubmit(event) {
         event.preventDefault();
         
+        if(this.state.image) {
+            UsersAPI.uploadProfilePicture(this.state.image).then((res) => {
+                
+                UsersAPI.save({...this.state.user, image: res.data}).then(() => {
+                    this.props.history.push('/users-list');
+                });
+            });
+        } else  {
+            UsersAPI.save(this.state).then(() => {
+                this.props.history.push('/users-list');
+            });
+        }       
      }
 
     render() {
@@ -67,7 +86,7 @@ class UserProfileEdit extends Component {
                         <div className="col-6">                                 
                             <div className="form-group">
                                 <label>Image</label>
-                                <input type="file" name="image" />
+                                <input type="file" name="image" onChange={this.onImageChange.bind(this)}/>
                             </div>                    
                         </div>            
                     </div>
