@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import UsersAPI from '../../../api/UserAPI';
 import { withRouter } from 'react-router-dom';
 
+import './edit-user.css';
+
 class UserProfileEdit extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            user: {},
+            user: {
+                firstName: '',
+                 lastName: '',
+                 email: ''
+            },
             image: ''
         };
     }
@@ -56,10 +62,10 @@ class UserProfileEdit extends Component {
 
     render() {
         return (
-            <div className="edit-form-wrapper">
-                <form onSubmit={this.onSubmit.bind(this)}>   
+            <div className="edit-form-wrapper mt-5">
+                <form onSubmit={this.onSubmit.bind(this)} className="mt-5">   
                     <div className="row">
-                        <div className="col-6">                                 
+                        <div className="col-12">                                 
                             <div className="form-group">
                                 <label>First name</label>
                                 <input type="text" name="firstName" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.firstName} />
@@ -67,7 +73,7 @@ class UserProfileEdit extends Component {
                         </div>            
                     </div>
                     <div className="row">
-                        <div className="col-6">                                 
+                        <div className="col-12">                                 
                             <div className="form-group">
                                 <label>Last name</label>
                                 <input type="text" name="lastName" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.lastName} />
@@ -75,7 +81,7 @@ class UserProfileEdit extends Component {
                         </div>            
                     </div>
                     <div className="row">
-                        <div className="col-6">                                 
+                        <div className="col-12">                                 
                             <div className="form-group">
                                 <label>Email</label>
                                 <input type="text" name="email" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.email} />
@@ -83,16 +89,16 @@ class UserProfileEdit extends Component {
                         </div>            
                     </div>
                     <div className="row">
-                        <div className="col-6">                                 
+                        <div className="col-12">                                 
                             <div className="form-group">
                                 <label>Image</label>
-                                <input type="file" name="image" onChange={this.onImageChange.bind(this)}/>
+                                <input type="file" name="image" className="d-block" onChange={this.onImageChange.bind(this)}/>
                             </div>                    
                         </div>            
                     </div>
                     <div className="row">
-                        <div className="col-6">                                 
-                            <button type="submit">Save</button>                   
+                        <div className="col-12">                                 
+                            <button className="btn btn-primary" type="submit">Save</button>                   
                         </div>            
                     </div>
                 </form>

@@ -1,0 +1,17 @@
+.user-profile-holder {
+    border: 1px solid gray;
+    padding: 30px;
+}
+
+.img-holder img {
+    width: 300px;
+    height: 500px;
+}
+
+.font-weight-semibold {
+    font-weight: 700;
+}
+
+.edit-btn {
+    float: right;
+}

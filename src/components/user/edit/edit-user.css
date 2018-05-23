@@ -1,0 +1,19 @@
+.edit-form-wrapper {
+    border: 1px solid gray;
+    height: 500px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+
+.form-row {
+    height: 100%;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

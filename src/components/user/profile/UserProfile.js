@@ -2,6 +2,8 @@
  import UsersAPI from '../../../api/UserAPI';
  import { withRouter } from 'react-router-dom';
 
+ import './user-profile.css';
+
 class UserProfile extends Component {
      constructor(props) {
          super(props);
@@ -29,20 +31,20 @@ class UserProfile extends Component {
          const { user } = this.state;
          const isCurrentUser = UsersAPI.getLoggedUser()._id === user.id;
          return (
-             <div className="user-profile-holder mt-5">
+             <div className="user-profile-holder mt-5 container">
                 <div className="row">
                     <div className="col-12">
                         <h3 className="d-inline-block">{user.firstName} {user.lastName}</h3> {isCurrentUser ? <button onClick={this.redirectToEdit.bind(this)} className="btn btn-primary">Edit</button> : ''}
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-4 img-holder">
                         {user.image && user.image.url ? <img src={user.image.url} alt="profile-pic" /> : ''}
                     </div>
                     <div className="col-8">
                         <div className="row">
-                            <div className="col-12">
-                                <span>Email: </span> <span>{user.email}</span>
+                            <div className="col-12 text-left">
+                                <span className="font-weight-semibold">Email: </span> <span>{user.email}</span>
                             </div>
                         </div>
                     </div>

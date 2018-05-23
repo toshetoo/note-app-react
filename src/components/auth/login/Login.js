@@ -39,11 +39,11 @@ export default class Login extends Component {
                     <div className="col-4">                                        
                         <form onSubmit={this.onSubmit.bind(this)}>
                             <div className="form-group">
-                                <label for="email">Email:</label>
+                                <label>Email:</label>
                                 <input type="email" name="email" id="email" className="form-control" onChange={this.onChange.bind(this)}/> 
                             </div>
                             <div className="form-group">
-                                <label for="password">Password:</label>
+                                <label>Password:</label>
                                 <input type="password" name="password" id="password" className="form-control" onChange={this.onChange.bind(this)}/> 
                             </div>
                             <div>

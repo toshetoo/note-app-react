@@ -14,7 +14,7 @@ export default class AddNote extends Component {
   }
 
   componentDidMount() {
-    let id = this.props.match.params.id;
+    let id = this.props.computedMatch.params.id;
 
     if (id) {
       this.setState({
