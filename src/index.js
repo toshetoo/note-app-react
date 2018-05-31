@@ -5,11 +5,19 @@ import Main from "./components/layout/main/Main";
 import { Router } from "react-router-dom";
 import history from './core/history/History';
 import Header from "./components/layout/header/Header";
+import storeConfig from './store/index';
+import { Provider } from "react-redux";
+import { loadNotes } from "./actions/notesActons";
+import { loadUsers } from "./actions/usersActions";
 
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center"
 };
+
+const store = storeConfig();
+store.dispatch(loadNotes());
+store.dispatch(loadUsers());
 
 export default class App extends Component {
   render() {
@@ -23,8 +31,10 @@ export default class App extends Component {
 }
 
 render(
-  <Router history={history}>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );

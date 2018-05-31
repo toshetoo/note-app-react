@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import NoteModel from "./../models/NoteModel";
 import Loader from "../../layout/Loader";
 import NotesAPI from "../../../api/NotesAPI";
+import { addNote } from '../../../actions/notesActons';
 
-export default class AddNote extends Component {
+class AddNote extends Component {
   constructor(props) {
     super(props);
 
@@ -11,23 +13,6 @@ export default class AddNote extends Component {
       note: new NoteModel("", ""),
       ready: true
     };
-  }
-
-  componentDidMount() {
-    let id = this.props.computedMatch.params.id;
-
-    if (id) {
-      this.setState({
-        ready: false
-      });
-
-      NotesAPI.getById(id).then(dbNote => {
-        this.setState({
-          note: dbNote,
-          ready: true
-        });
-      });
-    }
   }
 
   onPropChange(event) {
@@ -48,13 +33,7 @@ export default class AddNote extends Component {
       ready: false
     });
 
-    NotesAPI.save(this.state.note).then(() => {
-      this.setState({
-        ready: true
-      });
-
-      this.props.history.push("/notes-list");
-    });
+    this.props.dispatch(addNote(this.state.note));
   }
 
   render() {
@@ -74,7 +53,7 @@ export default class AddNote extends Component {
                 <input
                   className="form-control"
                   name="title"
-                  value={this.state.note.title}
+                  value={this.props.note.title}
                   onChange={this.onPropChange.bind(this)}
                 />
               </div>
@@ -87,7 +66,7 @@ export default class AddNote extends Component {
                 <input
                   className="form-control"
                   name="description"
-                  value={this.state.note.description}
+                  value={this.props.note.description}
                   onChange={this.onPropChange.bind(this)}
                 />
               </div>
@@ -103,3 +82,12 @@ export default class AddNote extends Component {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  let id = ownProps.computedMatch.params.id;
+  return {
+    note: id ? state.notesReducer.notes.find(n => n._id === id) : {}
+  };
+}
+
+export default connect(mapStateToProps)(AddNote);

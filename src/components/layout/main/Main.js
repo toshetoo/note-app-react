@@ -24,14 +24,14 @@ export default class Main extends Component {
           <Route exact path="/verify/:id" component={Verify} />
           <Route exact path="/register" component={Register} />
 
-          <ProtectedRoute path="/home" component={Home} />
-          <ProtectedRoute path="/notes-list" component={NotesList} />
-          <ProtectedRoute path="/add-note" component={AddNote} />
-          <ProtectedRoute path="/add-note/:id" component={AddNote} />
+          <ProtectedRoute exact path="/home" component={Home} />
+          <ProtectedRoute exact path="/notes-list" component={NotesList} />
+          <ProtectedRoute exact path="/add-note" component={AddNote} />
+          <ProtectedRoute exact path="/add-note/:id" component={AddNote} />
 
-          <ProtectedRoute path="/user-profile/:id" component={UserProfile} />
-          <ProtectedRoute path="/edit-user/:id" component={UserProfileEdit} />
-          <ProtectedRoute path="/users-list" component={UsersList} />
+          <ProtectedRoute exact path="/user-profile/:id" component={UserProfile} />
+          <ProtectedRoute exact path="/edit-user/:id" component={UserProfileEdit} />
+          <ProtectedRoute exact path="/users-list" component={UsersList} />
 
           <Redirect from="/" to="/login" />
         </Switch>

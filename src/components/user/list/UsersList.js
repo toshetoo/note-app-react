@@ -3,7 +3,13 @@ import UsersAPI from '../../../api/UserAPI';
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+const mapStateToProps = (state, props) => {
+    return {
+      users: state.usersReducer.users
+    }
+  }
 
 class UsersList extends Component {
     constructor(props) {
@@ -12,14 +18,6 @@ class UsersList extends Component {
         this.state = {
             users: []
         };
-    }
-
-    componentDidMount() {
-        UsersAPI.getAll().then((users) => {
-            this.setState({
-                users: users.data
-            });
-        });
     }
 
     redirect(user) {
@@ -43,11 +41,14 @@ class UsersList extends Component {
             }
         ];
 
-        return (
+        console.log(this.props);
+        console.log(this.state);
+
+        return (           
             <div className="container mt-5">
                 <div className="row">
                     <div className="col-12">
-                        <ReactTable data={this.state.users} columns={columns} defaultPageSize={5}/>
+                        <ReactTable data={this.props.users} columns={columns} defaultPageSize={5}/>
                     </div>
                 </div>
             </div>            
@@ -55,4 +56,4 @@ class UsersList extends Component {
     }
 }
 
-export default withRouter(UsersList);
+export default withRouter(connect(mapStateToProps)(UsersList));

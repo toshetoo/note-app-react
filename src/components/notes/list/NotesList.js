@@ -1,37 +1,32 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import Note from "../single/Note";
 
 import Loader from "../../layout/Loader";
 import NotesAPI from '../../../api/NotesAPI';
 import UsersAPI from '../../../api/UserAPI';
 import './notes-list.css';
+import { loadNotes, deleteNote } from "../../../actions/notesActons";
 
 const styles = {
   "backgroundColor": "lightgray"
 };
 
+const mapStateToProps = (state, props) => {
+  const authorId = UsersAPI.getLoggedUser().id;
+  return {
+    notes: state.notesReducer.notes && state.notesReducer.notes.filter(n => n.authorId === authorId)
+  }
+}
 
-export default class NotesList extends Component {
+class NotesList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      notes: [],
       loggedUser: {},
-      ready: false
+      ready: true
     };
-  }
-
-  componentDidMount() {
-    const loggedUser = UsersAPI.getLoggedUser();
-
-    NotesAPI.getByAuthorId(loggedUser.id).then((dbNotes) => {
-      this.setState({
-        notes: dbNotes,
-        loggedUser: loggedUser,
-        ready: true
-      });
-    });
   }
 
   deleteNote(id) {
@@ -39,14 +34,11 @@ export default class NotesList extends Component {
       ready: false
     });
 
-    NotesAPI.delete(id).then(() => {
-      NotesAPI.getAll().then((dbNotes) => {
-        this.setState({
-          notes: dbNotes,
+    this.props.dispatch(deleteNote(id, () => {
+      this.setState({
           ready: true
         });
-      });
-    });
+    }));
   }
 
   render() {
@@ -54,7 +46,7 @@ export default class NotesList extends Component {
       return (
         <div className="note-list-wrapper" style={styles}>
           <div>
-            {this.state.notes.map(note => {
+            {this.props.notes && this.props.notes.map(note => {
               return (
                 <Note
                   key={note._id}
@@ -76,3 +68,5 @@ export default class NotesList extends Component {
     }
   }
 }
+
+export default connect(mapStateToProps)(NotesList);

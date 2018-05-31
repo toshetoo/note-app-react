@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import UsersAPI from '../../../api/UserAPI';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './edit-user.css';
+
+
+const mapStateToProps = (state, props) => {
+    const id = props.computedMatch.params['id'];
+    return {
+      users: state.usersReducer.users && state.usersReducer.users.find(u => u.id === id)
+    }
+  }
 
 class UserProfileEdit extends Component {
 
@@ -18,16 +27,6 @@ class UserProfileEdit extends Component {
             image: ''
         };
     }
-
-    componentDidMount() {
-        let id = this.props.computedMatch.params['id'];
-
-        UsersAPI.getById(id).then((user) => {
-            this.setState({
-                user: user.data[0]
-            });
-        });
-     }
 
      onChange(event) {
          event.persist();
@@ -68,7 +67,7 @@ class UserProfileEdit extends Component {
                         <div className="col-12">                                 
                             <div className="form-group">
                                 <label>First name</label>
-                                <input type="text" name="firstName" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.firstName} />
+                                <input type="text" name="firstName" className="form-control" onChange={this.onChange.bind(this)} value={this.props.user.firstName} />
                             </div>                    
                         </div>            
                     </div>
@@ -76,7 +75,7 @@ class UserProfileEdit extends Component {
                         <div className="col-12">                                 
                             <div className="form-group">
                                 <label>Last name</label>
-                                <input type="text" name="lastName" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.lastName} />
+                                <input type="text" name="lastName" className="form-control" onChange={this.onChange.bind(this)} value={this.props.user.lastName} />
                             </div>                    
                         </div>            
                     </div>
@@ -84,7 +83,7 @@ class UserProfileEdit extends Component {
                         <div className="col-12">                                 
                             <div className="form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" className="form-control" onChange={this.onChange.bind(this)} value={this.state.user.email} />
+                                <input type="text" name="email" className="form-control" onChange={this.onChange.bind(this)} value={this.props.user.email} />
                             </div>                    
                         </div>            
                     </div>
@@ -108,4 +107,4 @@ class UserProfileEdit extends Component {
 
 }
 
-export default withRouter(UserProfileEdit);
+export default withRouter(connect(mapStateToProps)(UserProfileEdit));
